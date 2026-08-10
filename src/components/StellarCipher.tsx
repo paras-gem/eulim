@@ -51,7 +51,7 @@ export default function StellarCipher() {
     <section className="stellarSection" aria-labelledby="stellar-title">
       <div className="starField" aria-hidden="true" />
       <div className="nebula nebulaOne" aria-hidden="true" /><div className="nebula nebulaTwo" aria-hidden="true" />
-      <div className="stellarCopy"><p className="sectionEyebrow"><Orbit size={15} /> NIGHT SKY PROTOCOL</p><h2 id="stellar-title">Decode the<br /><em>constellation.</em></h2><p>Tap all four stars in the hidden order. A correct star glows; a wrong star resets the signal. Ask for hints whenever you need them.</p><div className="cipherHint"><Sparkles size={16} /> Estimated solve time: under one minute.</div></div>
+      <div className="stellarCopy"><p className="eyebrow"><Orbit size={15} /> NIGHT SKY PROTOCOL</p><h2 id="stellar-title">Decode the<br /><em>constellation.</em></h2><p>Tap all four stars in the hidden order. A correct star glows; a wrong star resets the signal. Ask for hints whenever you need them.</p><div className="cipherHint"><Sparkles size={16} /> Estimated solve time: under one minute.</div></div>
       <div className="cipherPanel">
         <div className="cipherHeader"><span>STAR CIPHER / {puzzle.name}</span><span><Clock3 size={13} /> {time}</span></div>
         <div className={`constellation ${solved ? "solved" : ""}`} key={puzzleIndex}>
