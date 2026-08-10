@@ -139,8 +139,8 @@ html[data-theme="dark"] .universitySection{background:#201936}html[data-theme="d
 	}
 
 	/* Header spacing tweaks */
-	.siteHeader{gap:12px;padding:0 18px;height:69px}
-	.headerActions{gap:10px}
+	.siteHeader{gap:8px;padding:0 14px;height:69px;align-items:center}
+	.headerActions{gap:8px;display:flex;align-items:center}
 	.headerActions .headerCta{display:none}
 
 	/* Calendar / eventCard mobile fix: make it part of flow to avoid overlap */
@@ -150,8 +150,15 @@ html[data-theme="dark"] .universitySection{background:#201936}html[data-theme="d
 	.eventCard{z-index:1}
 
 	/* Reduce unwanted spacing between toggle and menu */
-	.menuButton{margin-left:6px}
+	.menuButton{margin-left:0}
+
+	/* Ensure enough space below hero so eventCard doesn't overlap following sections */
+	.heroInner{padding-bottom:120px}
 }
+
+/* Gallery heading (no banner) */
+.galleryHeading{grid-column:1/-1;padding:18px 0;margin-bottom:6px}
+.galleryHeading h2{font-size:1.9rem;margin:0}
 
 
 

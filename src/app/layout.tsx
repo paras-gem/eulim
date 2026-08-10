@@ -25,7 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <AppShell>{children}</AppShell>
         <Script id="theme-init" strategy="beforeInteractive">
-          {"try { var savedTheme = localStorage.getItem('eulim-theme'); if (savedTheme === 'dark' || savedTheme === 'light') { document.documentElement.dataset.theme = savedTheme; } else { document.documentElement.dataset.theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; } } catch (e) {}"}
+          {"try { var savedTheme = localStorage.getItem('eulim-theme'); var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; if (savedTheme === 'dark' || savedTheme === 'light') { if (window.innerWidth <= 700 && savedTheme === 'dark' && !prefersDark) { document.documentElement.dataset.theme = 'light'; } else { document.documentElement.dataset.theme = savedTheme; } } else { document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light'; } } catch (e) {}"}
         </Script>
       </body>
     </html>
