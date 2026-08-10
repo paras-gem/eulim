@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, Moon, X } from "lucide-react";
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import ScrollReveal from "./ScrollReveal";
 
 const links = [
@@ -19,11 +19,24 @@ const links = [
 
 export default function AppShell({ children }: { children: ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const storedTheme = window.localStorage.getItem("eulim-theme");
+    if (storedTheme === "dark" || storedTheme === "light") {
+      document.documentElement.dataset.theme = storedTheme;
+      return;
+    }
+
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
+  }, []);
+
   const closeMenu = () => setMenuOpen(false);
   const toggleTheme = () => {
-    const next = document.documentElement.dataset.theme !== "dark";
-    document.documentElement.dataset.theme = next ? "dark" : "light";
-    window.localStorage.setItem("eulim-theme", next ? "dark" : "light");
+    const currentTheme = document.documentElement.dataset.theme;
+    const nextTheme = currentTheme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = nextTheme;
+    window.localStorage.setItem("eulim-theme", nextTheme);
   };
   return (
     <div className="appShell">

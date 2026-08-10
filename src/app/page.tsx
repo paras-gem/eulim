@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { ArrowRight, AtSign, Atom, CalendarDays, Check, Clock3, FlaskConical, Lightbulb, Mail, MapPin, Rocket, Send, Sparkles, Trophy, Users } from "lucide-react";
-import CuriosityBurst from "@/components/CuriosityBurst";
 
 const categories = [
   {
@@ -68,7 +67,7 @@ export default function Home() {
         <div className="heroGrid" />
         <div className="heroInner">
           <div className="heroContent">
-            <p className="heroKicker"><span /> School of Sciences presents</p>
+            <p className="heroKicker"><span /> CHRIST (Deemed to be University) School of Sciences presents</p>
             <p className="eventEdition">EULIM SCIENCE CLUB · 2025</p>
             <h1>Where curiosity<br /><em>becomes impact.</em></h1>
             <p className="heroLead">A celebration of bold questions, bright ideas, and the students shaping what comes next.</p>
@@ -116,9 +115,6 @@ export default function Home() {
           <div><strong>∞</strong><span>Possibilities ahead</span></div>
           <div className="factQuote">“Science is not only a discipline of reason but, also, one of romance and passion.” <span>— Stephen Hawking</span></div>
         </div>
-        <div className="editorialGallery showcaseGallery" id="gallery">
-          <figure className="galleryImage imageWide"><Image src="/13.png" alt="Science Exhibition visual" fill sizes="(max-width: 700px) 100vw, 40vw" /></figure>
-        </div>
       </section>
 
       <section className="categoriesSection" id="categories" data-reveal>
@@ -138,6 +134,11 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="registrationSection" id="registration" data-reveal>
+        <div><p className="sectionEyebrow">REGISTRATION</p><h2>Ready to put your<br /><em>idea in motion?</em></h2><p>Scan the QR code to register for Science Exhibition 2025. For any difficulty, reach our event coordinators directly.</p></div>
+        <div className="qrCard"><span className="qrBadge">REGISTRATION OPEN</span><Image src="/79.png" alt="Science Exhibition registration QR code" width={210} height={210} /><span>SCAN TO REGISTER</span><small>Open your camera and point it here</small></div>
+      </section>
+
       <section className="milestonesSection" data-reveal>
         <div><div className="sectionEyebrow">A CLUB IN MOTION</div><h2>Curiosity has a<br /><em>history here.</em></h2></div>
         <div className="milestoneRail">
@@ -147,23 +148,32 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="quantumSection" data-reveal>
-        <div className="quantumHeading"><div><p className="sectionEyebrow">QUANTUM QUEST · 2026</p><h2>The chase was<br /><em>part of the science.</em></h2></div><p>Quantum Quest brought together teams for a high-energy treasure hunt where strategy, observation, and collaboration unlocked every next clue.</p></div>
-        <div className="quantumGallery">
-          <figure><Image src="/IMG_20260314_121742.jpg" alt="Quantum Quest treasure hunt 2026" fill sizes="(max-width: 700px) 100vw, 35vw" /></figure>
-          <figure><Image src="/IMG_20260314_125015.jpg" alt="Quantum Quest treasure hunt participants" fill sizes="(max-width: 700px) 100vw, 35vw" /></figure>
-          <figure><Image src="/IMG_20260314_130104.jpg" alt="Quantum Quest treasure hunt 2026 event" fill sizes="(max-width: 700px) 100vw, 35vw" /></figure>
-        </div>
+      <section className="quantumSection exploreSection" data-reveal>
+        <div className="quantumHeading"><div><p className="sectionEyebrow">EXPLORE EVENTS</p><h2>Quantum Quest</h2></div><p>Quantum Quest brought together teams for a high-energy treasure hunt where strategy, observation, and collaboration unlocked every next clue.</p></div>
       </section>
 
-      <section className="leadersSection" data-reveal>
-        <div className="leadersHeading"><div className="sectionEyebrow">WORDS THAT MOVE US</div><h2>Guided by<br /><em>belief in brilliance.</em></h2><p>Messages from the educators who inspire our community to explore with purpose.</p></div>
-        <div className="leadersGrid">{leaders.map((leader) => <article className="leaderCard" key={leader.name}><div className="leaderPortrait"><Image src={leader.image} alt="Eulim Science Exhibition leader" fill sizes="(max-width: 700px) 70vw, 20vw" /></div></article>)}</div>
+      <section className="editorialGallery mergedGallery" id="gallery">
+        <figure className="galleryText">
+          <span>Event gallery</span>
+          <p>These images capture the energy of our science exhibition — the team spirit, the crowd, and the hands-on action that made every moment memorable.</p>
+          <div className="galleryStamp"><span>Event highlights</span><b>Project showcase</b></div>
+        </figure>
+        <figure className="galleryImage imageWide"><Image src="/13.png" alt="Science Exhibition group photo" fill sizes="(max-width: 700px) 100vw, 50vw" /></figure>
+        <figure className="galleryImage galleryThird"><Image src="/IMG_20260314_121742.jpg" alt="Quantum Quest treasure hunt 2026" fill sizes="(max-width: 700px) 100vw, 25vw" /></figure>
+        <figure className="galleryImage galleryFourth"><Image src="/IMG_20260314_125015.jpg" alt="Quantum Quest participants" fill sizes="(max-width: 700px) 100vw, 25vw" /></figure>
+        <figure className="galleryImage galleryFifth"><Image src="/IMG_20260314_130104.jpg" alt="Quantum Quest event action" fill sizes="(max-width: 700px) 100vw, 50vw" /></figure>
       </section>
+
+      
 
       <section className="leaderMessageSection" data-reveal>
-        <div className="sectionEyebrow">THEIR MESSAGE TO YOU</div>
-        <h2>Words to take<br /><em>into the arena.</em></h2>
+        <div className="leaderHeader">
+          <div>
+            <div className="sectionEyebrow">MESSAGE FROM OUR LEADERS</div>
+            <h2>Message from our leaders</h2>
+          </div>
+          {/* attached image removed per request to avoid duplication */}
+        </div>
         <div className="messageGrid">{leaders.map((leader, index) => <article className="messageCard" key={leader.name}><span>0{index + 1}</span><p>“{leader.quote}”</p><footer><strong>{leader.name}</strong><small>{leader.role}</small></footer></article>)}</div>
       </section>
 
@@ -177,8 +187,6 @@ export default function Home() {
         </div>
       </section>
 
-      <CuriosityBurst />
-
       <section className="stellarLaunch" data-reveal>
         <div className="launchStars" aria-hidden="true" />
         <div><p className="sectionEyebrow">NEW · NIGHT SKY PROTOCOL</p><h2>A puzzle hidden<br />among the <em>stars.</em></h2></div>
@@ -191,16 +199,6 @@ export default function Home() {
           {contacts.map((contact) => <a href={`tel:${contact.phone.replace(/\s/g, "")}`} className="contactCard" key={contact.phone}><span>{contact.label}</span><strong>{contact.name}</strong><p>{contact.phone} <ArrowRight size={16} /></p></a>)}
         </div>
         <div className="socialBar"><p>FOLLOW THE SPARK</p><a href="https://www.instagram.com/schoolofsciences_christ" target="_blank" rel="noreferrer"><AtSign size={19} /> @schoolofsciences_christ</a><a href="https://www.instagram.com/eulimscienceclub_official" target="_blank" rel="noreferrer"><AtSign size={19} /> @eulimscienceclub_official</a><a href="mailto:eulimscienceclub@gmail.com"><Mail size={19} /> Write to Eulim</a><a href="https://ncr.christuniversity.in/" target="_blank" rel="noreferrer"><Send size={19} /> CHRIST Delhi NCR</a></div>
-      </section>
-      <section className="registrationSection" id="registration" data-reveal>
-        <div><p className="sectionEyebrow">REGISTRATION</p><h2>Ready to put your<br /><em>idea in motion?</em></h2><p>Scan the QR code to register for Science Exhibition 2025. For any difficulty, reach our event coordinators directly.</p></div>
-        <div className="qrCard"><span className="qrBadge">REGISTRATION OPEN</span><Image src="/79.png" alt="Science Exhibition registration QR code" width={210} height={210} /><span>SCAN TO REGISTER</span><small>Open your camera and point it here</small></div>
-      </section>
-      <section className="closingPanel">
-        <div className="closingOrbit"><span /><span /><span /></div>
-        <p className="sectionEyebrow">09 OCTOBER · SYNERGY SQUARE · 11:15 AM</p>
-        <h2>Bring your best<br /><em>question.</em></h2>
-        <a className="primaryAction" href="#categories">Find your category <ArrowRight size={18} /></a>
       </section>
     </>
   );
