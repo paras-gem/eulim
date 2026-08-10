@@ -138,10 +138,19 @@ html[data-theme="dark"] .universitySection{background:#201936}html[data-theme="d
 		border-bottom:1px solid rgba(255,255,255,.06);
 	}
 
-	/* Calendar / eventCard mobile fix: stack content cleanly */
-	.eventCard{display:block;width:calc(100% - 48px);padding:14px 16px;grid-template-columns:1fr}
+	/* Header spacing tweaks */
+	.siteHeader{gap:12px;padding:0 18px;height:69px}
+	.headerActions{gap:10px}
+	.headerActions .headerCta{display:none}
+
+	/* Calendar / eventCard mobile fix: make it part of flow to avoid overlap */
+	.eventCard{position:static;display:block;width:auto;margin:18px 24px;padding:14px 16px;grid-template-columns:1fr}
 	.eventCard>p{margin-top:12px}
 	.eventCard strong{font-size:2rem}
+	.eventCard{z-index:1}
+
+	/* Reduce unwanted spacing between toggle and menu */
+	.menuButton{margin-left:6px}
 }
 
 
