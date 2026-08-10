@@ -132,6 +132,7 @@ html[data-theme="dark"] .universitySection{background:#201936}html[data-theme="d
 @media (max-width: 700px) {
   .siteHeader {
     height: 64px;
+    justify-content: flex-start;
     gap: 8px;
     padding: 0 12px;
     background: rgba(255, 255, 255, 0.6);
@@ -142,10 +143,10 @@ html[data-theme="dark"] .universitySection{background:#201936}html[data-theme="d
 
   html[data-theme="dark"] .siteHeader { background: rgba(15, 13, 24, 0.6); }
   .brand { margin-right: 8px; }
-  .headerActions { display: flex; align-items: center; gap: 8px; }
+  .headerActions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
   .headerActions .headerCta { display: none; }
   .themeToggle { width: 40px; height: 40px; margin: 0; padding: 0; }
-  .menuButton { margin: 0; padding: 8px; }
+  .menuButton { margin: 0 0 0 12px; padding: 8px; }
   .siteNav { top: 64px; }
   .siteNav.open { background: rgba(255, 255, 255, 0.8); }
   html[data-theme="dark"] .siteNav.open { background: rgba(12, 12, 18, 0.8); }
@@ -219,5 +220,4 @@ html[data-theme="dark"] .universitySection{background:#201936}html[data-theme="d
   .editorialGallery .imageWide,
   .mergedGallery .imageWide { height: 250px; }
 }
-
 
