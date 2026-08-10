@@ -151,6 +151,20 @@ html[data-theme="dark"] .universitySection{background:#201936}html[data-theme="d
   .siteNav.open { background: rgba(255, 255, 255, 0.8); }
   html[data-theme="dark"] .siteNav.open { background: rgba(12, 12, 18, 0.8); }
 
+  .eventHero,
+  .heroInner { min-height: 0; }
+
+  .heroInner {
+    flex-direction: column;
+    padding-bottom: 42px;
+  }
+
+  .eventCard {
+    position: static;
+    width: 100%;
+    margin-top: 30px;
+  }
+
   .editorialGallery,
   .mergedGallery {
     display: grid;
@@ -220,4 +234,3 @@ html[data-theme="dark"] .universitySection{background:#201936}html[data-theme="d
   .editorialGallery .imageWide,
   .mergedGallery .imageWide { height: 250px; }
 }
-
