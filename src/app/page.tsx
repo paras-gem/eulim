@@ -153,9 +153,11 @@ export default function Home() {
       </section>
 
       <section className="editorialGallery mergedGallery" id="gallery">
-        <div className="galleryHeading">
-          <h2>Event gallery</h2>
-        </div>
+        <figure className="galleryText">
+          <span>Event gallery</span>
+          <p>These images capture the energy of our science exhibition — the team spirit, the crowd, and the hands-on action that made every moment memorable.</p>
+          <div className="galleryStamp"><span>Event highlights</span><b>Project showcase</b></div>
+        </figure>
         <figure className="galleryImage imageWide"><Image src="/13.png" alt="Science Exhibition group photo" fill sizes="(max-width: 700px) 100vw, 50vw" /></figure>
         <figure className="galleryImage galleryThird"><Image src="/IMG_20260314_121742.jpg" alt="Quantum Quest treasure hunt 2026" fill sizes="(max-width: 700px) 100vw, 25vw" /></figure>
         <figure className="galleryImage galleryFourth"><Image src="/IMG_20260314_125015.jpg" alt="Quantum Quest participants" fill sizes="(max-width: 700px) 100vw, 25vw" /></figure>
