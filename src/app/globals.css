@@ -285,6 +285,58 @@ html[data-theme="dark"] .universitySection{background:#201936}html[data-theme="d
 	.siteNav.open{right:12px;left:auto}
 }
 
+/* Mobile: optimized single-column gallery and banner presentation */
+@media(max-width:700px){
+	.editorialGallery, .mergedGallery{
+		display:block;
+		padding:0;
+		gap:18px;
+		margin:0;
+	}
+
+	.editorialGallery .galleryText,
+	.mergedGallery .galleryText{
+		width:calc(100% - 32px) !important;
+		margin:0 16px 8px 16px !important;
+		padding:14px 16px;
+		border-radius:12px;
+		box-shadow:0 12px 28px rgba(15,12,43,.1);
+		text-align:left;
+	}
+
+	.editorialGallery .galleryText span,
+	.mergedGallery .galleryText span{font-size:1.05rem}
+	.editorialGallery .galleryText p,
+	.mergedGallery .galleryText p{font-size:.95rem;margin-top:8px}
+
+	.editorialGallery .galleryImage,
+	.mergedGallery .galleryImage{
+		margin:0 16px 18px 16px !important;
+		border-radius:12px;
+		overflow:hidden;
+		min-height:160px;
+	}
+
+	.editorialGallery .galleryImage img,
+	.mergedGallery .galleryImage img{
+		width:100%;
+		height:220px;
+		object-fit:cover;
+		object-position:center 44%;
+		display:block;
+		border-radius:12px;
+	}
+
+	/* Larger height for the wide/group photo on mobile to preserve faces */
+	.editorialGallery .imageWide img,
+	.mergedGallery .imageWide img{
+		height:260px;
+		object-position:center 46% !important;
+	}
+
+	.mergedGallery .galleryStamp{margin:0 16px}
+}
+
 @media(max-width:480px){
 	.editorialGallery .galleryText,
 	.mergedGallery .galleryText{
