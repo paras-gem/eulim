@@ -158,10 +158,10 @@ export default function Home() {
           <p>These images capture the energy of our science exhibition — the team spirit, the crowd, and the hands-on action that made every moment memorable.</p>
           <div className="galleryStamp"><span>Event highlights</span></div>
         </figure>
-        <figure className="galleryImage imageWide"><Image src="/13.png" alt="Science Exhibition group photo" fill sizes="(max-width: 700px) 100vw, 50vw" /></figure>
-        <figure className="galleryImage galleryThird"><Image src="/IMG_20260314_121742.jpg" alt="Quantum Quest treasure hunt 2026" fill sizes="(max-width: 700px) 100vw, 25vw" /></figure>
-        <figure className="galleryImage galleryFourth"><Image src="/IMG_20260314_125015.jpg" alt="Quantum Quest participants" fill sizes="(max-width: 700px) 100vw, 25vw" /></figure>
-        <figure className="galleryImage galleryFifth"><Image src="/IMG_20260314_130104.jpg" alt="Quantum Quest event action" fill sizes="(max-width: 700px) 100vw, 50vw" /></figure>
+        <figure className="galleryImage imageWide"><Image src="/13.png" alt="Science Exhibition group photo" fill quality={90} sizes="(max-width: 980px) 100vw, 52vw" /></figure>
+        <figure className="galleryImage galleryThird"><Image src="/IMG_20260314_121742.jpg" alt="Quantum Quest treasure hunt 2026" fill quality={90} sizes="(max-width: 980px) 100vw, 26vw" /></figure>
+        <figure className="galleryImage galleryFourth"><Image src="/IMG_20260314_125015.jpg" alt="Quantum Quest participants" fill quality={90} sizes="(max-width: 980px) 100vw, 26vw" /></figure>
+        <figure className="galleryImage galleryFifth"><Image src="/IMG_20260314_130104.jpg" alt="Quantum Quest event action" fill quality={90} sizes="(max-width: 980px) 100vw, 52vw" /></figure>
       </section>
 
       

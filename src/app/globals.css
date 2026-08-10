@@ -234,3 +234,16 @@ html[data-theme="dark"] .universitySection{background:#201936}html[data-theme="d
   .editorialGallery .imageWide,
   .mergedGallery .imageWide { height: 250px; }
 }
+
+/* Fill desktop gallery tiles while keeping faces in the upper frame. */
+@media (min-width: 701px) {
+  .mergedGallery .imageWide,
+  .editorialGallery .imageWide { min-height: 380px; }
+
+  .editorialGallery .galleryImage img,
+  .mergedGallery .galleryImage img {
+    object-fit: cover;
+    object-position: center 20%;
+    background: transparent;
+  }
+}
