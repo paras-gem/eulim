@@ -243,6 +243,35 @@ html[data-theme="dark"] .universitySection{background:#201936}html[data-theme="d
 	}
 }
 
+/* Tight mobile fixes to prevent banner-image overlap and reveal faces */
+@media(max-width:700px){
+	.editorialGallery,.mergedGallery{grid-auto-flow:row}
+	.editorialGallery .galleryText,
+	.mergedGallery .galleryText{
+		position:static !important;
+		z-index:2 !important;
+		width:100% !important;
+		margin:0 0 14px 0 !important;
+		border-radius:12px;
+	}
+
+	.editorialGallery .galleryImage,
+	.mergedGallery .galleryImage{
+		margin:0 !important;
+		position:relative !important;
+		z-index:1 !important;
+		overflow:hidden !important;
+		min-height:180px;
+	}
+
+	/* Nudge group-photo downwards on mobile to show top faces */
+	.editorialGallery .imageWide img,
+	.mergedGallery .imageWide img,
+	.showcaseGallery .imageWide img{
+		object-position: center 36% !important;
+	}
+}
+
 @media(max-width:480px){
 	.editorialGallery .galleryText,
 	.mergedGallery .galleryText{
