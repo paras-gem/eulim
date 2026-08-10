@@ -250,14 +250,14 @@ html[data-theme="dark"] .universitySection{background:#201936}html[data-theme="d
 	.mergedGallery .galleryText{
 		position:static !important;
 		z-index:2 !important;
-		width:100% !important;
-		margin:0 0 14px 0 !important;
+		width:calc(100% - 32px) !important;
+		margin:0 16px 14px 16px !important;
 		border-radius:12px;
 	}
 
 	.editorialGallery .galleryImage,
 	.mergedGallery .galleryImage{
-		margin:0 !important;
+		margin:0 16px 18px 16px !important;
 		position:relative !important;
 		z-index:1 !important;
 		overflow:hidden !important;
@@ -270,6 +270,19 @@ html[data-theme="dark"] .universitySection{background:#201936}html[data-theme="d
 	.showcaseGallery .imageWide img{
 		object-position: center 36% !important;
 	}
+}
+
+/* Final header tweaks for mobile: remove gap around theme toggle */
+@media(max-width:700px){
+	.siteHeader{padding:0 12px;height:64px}
+	.siteHeader{align-items:center}
+	.brand{margin-right:8px}
+	.headerActions{gap:8px;display:flex;align-items:center}
+	.themeToggle{width:40px;height:40px;margin:0;padding:0}
+	.menuButton{margin:0;padding:8px}
+	/* Keep nav overlay from reserving horizontal space */
+	.siteNav{position:absolute;left:auto;right:12px;transform:none}
+	.siteNav.open{right:12px;left:auto}
 }
 
 @media(max-width:480px){
