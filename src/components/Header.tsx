@@ -22,6 +22,14 @@ export default function Header() {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    if (menuOpen) window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen]);
+
   const toggleTheme = () => {
     const next = theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
@@ -54,7 +62,7 @@ export default function Header() {
           <button className="iconBtn" type="button" onClick={toggleTheme} aria-label="Toggle colour theme">
             {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
           </button>
-          <Link className="btn btnPrimary headerCta" href="/#registration">
+          <Link className="btn btnPrimary headerCta" href="/#participate">
             Register
           </Link>
           <button
@@ -69,16 +77,41 @@ export default function Header() {
         </div>
       </div>
 
-      <nav className={menuOpen ? "mobileNav open" : "mobileNav"} aria-label="Mobile" aria-hidden={!menuOpen}>
-        {navLinks.map((link) => (
-          <Link href={link.href} key={link.href} onClick={closeMenu}>
-            {link.label}
-            <span aria-hidden="true">→</span>
+      <div
+        className={menuOpen ? "mobileNavBackdrop open" : "mobileNavBackdrop"}
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
+
+      <nav
+        className={menuOpen ? "mobileNav open" : "mobileNav"}
+        aria-label="Mobile"
+        aria-hidden={!menuOpen}
+      >
+        <div className="mobileNavHead">
+          <p>Navigate</p>
+          <button className="iconBtn mobileNavClose" type="button" onClick={closeMenu} aria-label="Close menu">
+            <X size={18} />
+          </button>
+        </div>
+
+        <div className="mobileNavGrid">
+          {navLinks.map((link) => (
+            <Link href={link.href} key={link.href} onClick={closeMenu}>
+              {link.label}
+            </Link>
+          ))}
+        </div>
+
+        <div className="mobileNavFoot">
+          <button className="btn btnGhost mobileThemeBtn" type="button" onClick={toggleTheme}>
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            {theme === "dark" ? "Light mode" : "Dark mode"}
+          </button>
+          <Link className="btn btnPrimary" href="/#participate" onClick={closeMenu}>
+            Register now
           </Link>
-        ))}
-        <Link className="btn btnPrimary" href="/#registration" onClick={closeMenu}>
-          Register now
-        </Link>
+        </div>
       </nav>
     </header>
   );

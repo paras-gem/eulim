@@ -98,14 +98,14 @@ export const contacts: Contact[] = [
   { label: "General coordination", name: "Mr. Aryan Garg", phone: "+91 93197 00172" },
 ];
 
-export type Leader = { name: string; role: string; image: string; quote: string };
+export type Leader = { name: string; role: string; quote: string };
 
 export const leaders: Leader[] = [
-  { name: "Dr. Fr. Peter M.V.", role: "Campus Administrator", image: "/47.jpg", quote: "The exhibition is a celebration of the relentless curiosity that propels us forward and the boundless innovation that defines our academic community." },
-  { name: "Dr. Jeanne Poulose", role: "Dean", image: "/48.jpg", quote: "Your work has the potential to serve, solve, and inspire—reshaping lives in meaningful ways beyond the laboratory." },
-  { name: "Dr. Bosco Paul Alapatt", role: "Associate Dean & Head of Department", image: "/49.jpg", quote: "Every project and presentation is a beacon of inspiration, inviting us to question, explore, and imagine new horizons." },
-  { name: "Prof. Vandana Mehndiratta", role: "Academic Coordinator", image: "/50.jpg", quote: "Together, we can foster a spirit of scientific inquiry, discovery, and collaboration that pushes knowledge forward." },
-  { name: "Prof. Amrit Kaur Saggu", role: "Faculty Coordinator, Eulim Science Club", image: "/51.jpg", quote: "Let us expand the horizons of possibility and kindle the flame of discovery in every curious mind." },
+  { name: "Dr. Fr. Peter M.V.", role: "Campus Administrator", quote: "The exhibition is a celebration of the relentless curiosity that propels us forward and the boundless innovation that defines our academic community." },
+  { name: "Dr. Jeanne Poulose", role: "Dean", quote: "Your work has the potential to serve, solve, and inspire—reshaping lives in meaningful ways beyond the laboratory." },
+  { name: "Dr. Bosco Paul Alapatt", role: "Associate Dean & Head of Department", quote: "Every project and presentation is a beacon of inspiration, inviting us to question, explore, and imagine new horizons." },
+  { name: "Prof. Vandana Mehndiratta", role: "Academic Coordinator", quote: "Together, we can foster a spirit of scientific inquiry, discovery, and collaboration that pushes knowledge forward." },
+  { name: "Prof. Amrit Kaur Saggu", role: "Faculty Coordinator, Eulim Science Club", quote: "Let us expand the horizons of possibility and kindle the flame of discovery in every curious mind." },
 ];
 
 export type Milestone = { number: string; title: string; body: string; icon: LucideIcon };
@@ -128,9 +128,11 @@ export const campuses: { name: string; primary?: boolean }[] = [
 export const navLinks = [
   { href: "/#home", label: "Home" },
   { href: "/#about", label: "About" },
+  { href: "/#leaders", label: "Leaders" },
   { href: "/#categories", label: "Categories" },
+  { href: "/#journey", label: "Journey" },
+  { href: "/#participate", label: "Participate" },
   { href: "/#gallery", label: "Gallery" },
-  { href: "/#guidelines", label: "Guidelines" },
   { href: "/stellar-cipher", label: "Star Cipher" },
   { href: "/#contact", label: "Contact" },
 ];

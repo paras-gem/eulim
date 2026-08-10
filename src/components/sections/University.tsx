@@ -3,7 +3,7 @@ import { campuses, milestones } from "@/lib/content";
 
 export default function University() {
   return (
-    <section className="section container" data-reveal>
+    <section className="section container" id="university" data-reveal>
       <div className="uniGrid">
         <div>
           <p className="eyebrow">CHRIST (Deemed to be University)</p>

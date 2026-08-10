@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, Geist_Mono, Syne } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import AppShell from "@/components/AppShell";
@@ -8,6 +8,12 @@ const display = Space_Grotesk({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
+});
+
+const heroDisplay = Syne({
+  variable: "--font-hero",
+  subsets: ["latin"],
+  weight: ["700", "800"],
 });
 
 const body = Inter({
@@ -21,13 +27,13 @@ const mono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Science Exhibition 2025 | Eulim Science Club",
+  title: "Science Exhibition 2026 | Eulim Science Club",
   description:
-    "Science Exhibition 2025, presented by Eulim Science Club at CHRIST (Deemed to be University), Delhi NCR Campus. Where curiosity becomes impact.",
+    "Science Exhibition 2026, presented by Eulim Science Club at CHRIST (Deemed to be University), Delhi NCR Campus. Where curiosity becomes impact.",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a1424",
+  themeColor: "#040810",
   width: "device-width",
   initialScale: 1,
 };
@@ -37,7 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-theme="dark"
-      className={`${display.variable} ${body.variable} ${mono.variable}`}
+      className={`${display.variable} ${heroDisplay.variable} ${body.variable} ${mono.variable}`}
       suppressHydrationWarning
     >
       <body>
