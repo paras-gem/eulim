@@ -1,5 +1,42 @@
 import type { LucideIcon } from "lucide-react";
-import { FlaskConical, Atom, Lightbulb, Rocket, Users, Trophy, Sparkles } from "lucide-react";
+import { FlaskConical, Atom, Lightbulb, Rocket, Users, Trophy, Sparkles, ClipboardCheck, Presentation, Award } from "lucide-react";
+
+// Exhibition schedule anchor for the live countdown.
+export const eventDate = "2026-03-14T09:30:00+05:30";
+export const eventMeta = {
+  title: "Science Exhibition 2026",
+  club: "Eulim Science Club",
+  venue: "CHRIST (Deemed to be University), Delhi NCR",
+  dateLabel: "14 March 2026",
+  timeLabel: "9:30 AM onwards",
+};
+
+export type Stat = { value: number; suffix: string; label: string };
+export const stats: Stat[] = [
+  { value: 4, suffix: "", label: "Exhibition tracks" },
+  { value: 120, suffix: "+", label: "Participants expected" },
+  { value: 6, suffix: "", label: "CHRIST campuses" },
+  { value: 1, suffix: " day", label: "Of pure discovery" },
+];
+
+export type Step = { number: string; title: string; body: string; icon: LucideIcon };
+export const steps: Step[] = [
+  { number: "01", title: "Register your team", body: "Pick a track, form a team of the right size, and lock your idea before the deadline.", icon: ClipboardCheck },
+  { number: "02", title: "Build & prepare", body: "Prototype your model, poster, or pitch. Prepare to explain your process with evidence.", icon: FlaskConical },
+  { number: "03", title: "Exhibit live", body: "Set up your stall and present to peers, faculty, and visiting judges on exhibition day.", icon: Presentation },
+  { number: "04", title: "Get recognised", body: "Standout projects across every track are celebrated and awarded on the main stage.", icon: Award },
+];
+
+export type GalleryItem = { src: string; alt: string; tag: string };
+export const gallery: GalleryItem[] = [
+  { src: "/IMG_20260314_121742.jpg", alt: "Students presenting a working model at the exhibition", tag: "Exhibits" },
+  { src: "/IMG_20260314_125015.jpg", alt: "Visitors exploring science stalls", tag: "Crowd" },
+  { src: "/IMG_20260314_130104.jpg", alt: "A team demonstrating their project", tag: "Demos" },
+  { src: "/52.jpg", alt: "Exhibition hall moment", tag: "Moments" },
+  { src: "/53.jpg", alt: "Project showcase", tag: "Exhibits" },
+  { src: "/54.jpg", alt: "Students collaborating", tag: "Crowd" },
+];
+export const galleryFilters = ["All", "Exhibits", "Demos", "Crowd", "Moments"] as const;
 
 export type Category = {
   number: string;
