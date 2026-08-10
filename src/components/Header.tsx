@@ -40,6 +40,7 @@ export default function Header() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
+    <>
     <header className="siteHeader">
       <div className="container headerInner">
         <Link className="brand" href="/#home" onClick={closeMenu} aria-label="Eulim Science Club home">
@@ -76,43 +77,44 @@ export default function Header() {
           </button>
         </div>
       </div>
-
-      <div
-        className={menuOpen ? "mobileNavBackdrop open" : "mobileNavBackdrop"}
-        onClick={closeMenu}
-        aria-hidden="true"
-      />
-
-      <nav
-        className={menuOpen ? "mobileNav open" : "mobileNav"}
-        aria-label="Mobile"
-        aria-hidden={!menuOpen}
-      >
-        <div className="mobileNavHead">
-          <p>Navigate</p>
-          <button className="iconBtn mobileNavClose" type="button" onClick={closeMenu} aria-label="Close menu">
-            <X size={18} />
-          </button>
-        </div>
-
-        <div className="mobileNavGrid">
-          {navLinks.map((link) => (
-            <Link href={link.href} key={link.href} onClick={closeMenu}>
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
-        <div className="mobileNavFoot">
-          <button className="btn btnGhost mobileThemeBtn" type="button" onClick={toggleTheme}>
-            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-            {theme === "dark" ? "Light mode" : "Dark mode"}
-          </button>
-          <Link className="btn btnPrimary" href="/#participate" onClick={closeMenu}>
-            Register now
-          </Link>
-        </div>
-      </nav>
     </header>
+
+    <div
+      className={menuOpen ? "mobileNavBackdrop open" : "mobileNavBackdrop"}
+      onClick={closeMenu}
+      aria-hidden="true"
+    />
+
+    <nav
+      className={menuOpen ? "mobileNav open" : "mobileNav"}
+      aria-label="Mobile"
+      aria-hidden={!menuOpen}
+    >
+      <div className="mobileNavHead">
+        <p>Navigate</p>
+        <button className="iconBtn mobileNavClose" type="button" onClick={closeMenu} aria-label="Close menu">
+          <X size={18} />
+        </button>
+      </div>
+
+      <div className="mobileNavGrid">
+        {navLinks.map((link) => (
+          <Link href={link.href} key={link.href} onClick={closeMenu}>
+            {link.label}
+          </Link>
+        ))}
+      </div>
+
+      <div className="mobileNavFoot">
+        <button className="btn btnGhost mobileThemeBtn" type="button" onClick={toggleTheme}>
+          {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+          {theme === "dark" ? "Light mode" : "Dark mode"}
+        </button>
+        <Link className="btn btnPrimary" href="/#participate" onClick={closeMenu}>
+          Register now
+        </Link>
+      </div>
+    </nav>
+    </>
   );
 }

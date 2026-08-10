@@ -12,6 +12,11 @@
   --silver: #c3cede;
   --navy-accent: #3b6fd6;
 
+  /* Primary brand (theme-aware via overrides below) */
+  --primary: var(--orange);
+  --primary-soft: var(--orange-soft);
+  --primary-foreground: #14120a;
+
   /* Soft dark (default) neutrals — deep cosmic palette */
   --bg: #040810;
   --bg-2: #080f1c;
@@ -58,6 +63,10 @@ html[data-theme="light"] {
   --line: rgba(14, 32, 54, 0.12);
   --line-strong: rgba(14, 32, 54, 0.2);
   --shadow: 0 24px 60px -34px rgba(15, 34, 64, 0.35);
+  --primary: #3d5a80;
+  --primary-soft: #4d6d94;
+  --primary-foreground: #ffffff;
+  --navy-accent: #3d5a80;
   --hero-a: #eef2f9;
   --hero-b: #e4ebf8;
   --hero-c: #dce6f5;
@@ -196,12 +205,18 @@ h1, h2, h3 {
 }
 
 .btnPrimary {
-  background: var(--orange);
-  color: #14120a;
-  box-shadow: 0 14px 30px -14px rgba(255, 122, 51, 0.7);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 14px 30px -14px color-mix(in srgb, var(--primary) 70%, transparent);
+}
+
+html[data-theme="light"] .btnPrimary {
+  box-shadow: 0 14px 30px -14px rgba(61, 90, 128, 0.35);
 }
 
 html[data-theme="dark"] .btnPrimary {
+  background: var(--orange);
+  color: #14120a;
   box-shadow:
     0 14px 30px -14px rgba(255, 122, 51, 0.55),
     0 0 48px -16px rgba(255, 122, 51, 0.18);
@@ -209,6 +224,10 @@ html[data-theme="dark"] .btnPrimary {
 
 .btnPrimary:hover {
   transform: translateY(-2px);
+  background: var(--primary-soft);
+}
+
+html[data-theme="dark"] .btnPrimary:hover {
   background: var(--orange-soft);
 }
 
@@ -240,8 +259,17 @@ html[data-theme="dark"] .categoryCard {
   top: 0;
   z-index: 50;
   background: color-mix(in srgb, var(--bg) 78%, transparent);
-  backdrop-filter: blur(20px) saturate(1.4);
   border-bottom: 1px solid var(--line);
+  isolation: isolate;
+}
+
+.siteHeader::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  backdrop-filter: blur(20px) saturate(1.4);
+  pointer-events: none;
 }
 
 html[data-theme="dark"] .siteHeader {
@@ -322,11 +350,15 @@ html[data-theme="dark"] .siteHeader {
   display: none;
 }
 
+.menuToggle {
+  display: grid;
+}
+
 /* Mobile menu */
 .mobileNavBackdrop {
   position: fixed;
   inset: 0;
-  z-index: 44;
+  z-index: 80;
   background: rgba(2, 5, 12, 0.65);
   backdrop-filter: blur(6px);
   opacity: 0;
@@ -343,7 +375,7 @@ html[data-theme="dark"] .siteHeader {
   position: fixed;
   inset: 0 0 0 auto;
   width: min(100%, 380px);
-  z-index: 45;
+  z-index: 90;
   background: var(--bg-2);
   border-left: 1px solid var(--line);
   padding: 0;
@@ -359,6 +391,15 @@ html[data-theme="dark"] .siteHeader {
 html[data-theme="dark"] .mobileNav {
   background: linear-gradient(180deg, #080f1c 0%, #040810 100%);
   box-shadow: -24px 0 60px rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme="light"] .mobileNav {
+  background: var(--bg-2);
+  box-shadow: -24px 0 60px rgba(15, 34, 64, 0.12);
+}
+
+html[data-theme="light"] .mobileNavBackdrop {
+  background: rgba(7, 20, 38, 0.35);
 }
 
 .mobileNav.open {
@@ -1921,6 +1962,48 @@ html[data-theme="light"] .stellarSection {
   pointer-events: none;
 }
 
+html[data-theme="light"] .starField {
+  background-image:
+    radial-gradient(1.2px 1.2px at 15% 25%, rgba(61, 90, 128, 0.55), transparent),
+    radial-gradient(1px 1px at 65% 15%, rgba(196, 134, 26, 0.45), transparent),
+    radial-gradient(1.4px 1.4px at 35% 65%, rgba(61, 90, 128, 0.5), transparent),
+    radial-gradient(1px 1px at 80% 55%, rgba(61, 90, 128, 0.35), transparent),
+    radial-gradient(1px 1px at 50% 40%, rgba(61, 90, 128, 0.45), transparent),
+    radial-gradient(1px 1px at 25% 85%, rgba(61, 90, 128, 0.4), transparent);
+  opacity: 0.85;
+}
+
+.nebula {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(60px);
+}
+
+.nebulaOne {
+  width: 280px;
+  height: 280px;
+  top: 8%;
+  left: -4%;
+  background: rgba(59, 111, 214, 0.22);
+}
+
+.nebulaTwo {
+  width: 240px;
+  height: 240px;
+  bottom: 10%;
+  right: -2%;
+  background: rgba(255, 122, 51, 0.14);
+}
+
+html[data-theme="light"] .nebulaOne {
+  background: rgba(61, 90, 128, 0.12);
+}
+
+html[data-theme="light"] .nebulaTwo {
+  background: rgba(255, 122, 51, 0.08);
+}
+
 .stellarCopy,
 .cipherPanel {
   position: relative;
@@ -2014,6 +2097,10 @@ html[data-theme="light"] .stellarSection {
   stroke-dasharray: 4 6;
 }
 
+html[data-theme="light"] .constellation svg path {
+  stroke: rgba(61, 90, 128, 0.28);
+}
+
 .constellationTrace {
   stroke: var(--gold) !important;
   stroke-width: 2.4 !important;
@@ -2033,6 +2120,20 @@ html[data-theme="light"] .stellarSection {
   color: var(--silver);
   cursor: pointer;
   transition: transform 0.2s ease, color 0.2s ease, filter 0.2s ease;
+}
+
+html[data-theme="light"] .cipherStar {
+  color: var(--primary);
+  filter: drop-shadow(0 0 4px rgba(61, 90, 128, 0.25));
+}
+
+html[data-theme="light"] .cipherStar:hover {
+  color: #2a4460;
+}
+
+html[data-theme="light"] .cipherStar.chosen {
+  color: var(--gold);
+  filter: drop-shadow(0 0 10px rgba(196, 134, 26, 0.55));
 }
 
 .cipherStar:hover {
@@ -2089,10 +2190,15 @@ html[data-theme="light"] .stellarSection {
   border: 0;
   border-radius: 999px;
   padding: 12px 20px;
-  background: var(--orange);
-  color: #14120a;
+  background: var(--primary);
+  color: var(--primary-foreground);
   font-weight: 600;
   cursor: pointer;
+}
+
+html[data-theme="dark"] .cipherNext {
+  background: var(--orange);
+  color: #14120a;
 }
 
 .cipherProgress {
@@ -2211,12 +2317,21 @@ html[data-theme="light"] .stellarSection {
 }
 
 .buttonPrimary {
-  background: var(--orange);
-  color: #14120a;
+  background: var(--primary);
+  color: var(--primary-foreground);
   border: 0;
 }
 
+html[data-theme="dark"] .buttonPrimary {
+  background: var(--orange);
+  color: #14120a;
+}
+
 .buttonPrimary:hover {
+  background: var(--primary-soft);
+}
+
+html[data-theme="dark"] .buttonPrimary:hover {
   background: var(--orange-soft);
 }
 

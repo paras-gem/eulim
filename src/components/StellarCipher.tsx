@@ -56,7 +56,17 @@ export default function StellarCipher() {
         <div className="cipherHeader"><span>STAR CIPHER / {puzzle.name}</span><span><Clock3 size={13} /> {time}</span></div>
         <div className={`constellation ${solved ? "solved" : ""}`} key={puzzleIndex}>
           <svg viewBox="0 0 400 310" aria-hidden="true"><path d={puzzle.path} /><path className="constellationTrace" d={puzzle.path} style={{ strokeDashoffset: solved ? 0 : 690 }} /></svg>
-          {puzzle.positions.map(([left, top], index) => <button key={index} className={`cipherStar star${index} ${sequence.includes(index) ? "chosen" : ""}`} style={{ left: `${left / 4}%`, top: `${top / 3.1}%` }} onClick={() => addStar(index)} aria-label={`Star ${index + 1}`}><Star fill="currentColor" size={27} /></button>)}
+          {puzzle.positions.map(([left, top], index) => (
+            <button
+              key={index}
+              className={`cipherStar star${index} ${sequence.includes(index) ? "chosen" : ""}`}
+              style={{ left: `${(left / 400) * 100}%`, top: `${(top / 310) * 100}%` }}
+              onClick={() => addStar(index)}
+              aria-label={`Star ${index + 1}`}
+            >
+              <Star fill="currentColor" size={27} />
+            </button>
+          ))}
           {solved && <div className="cipherMessage"><Trophy size={22} /><strong>CONSTELLATION SOLVED</strong><p>You decoded the Eulim sky in <b>{time}</b>.</p><small>{puzzleIndex === puzzles.length - 1 ? "You have decoded every signal." : "A new signal is waiting in the night sky."}</small><button type="button" className="cipherNext" onClick={nextPuzzle}>{puzzleIndex === puzzles.length - 1 ? "Play again" : "Next constellation"}</button></div>}
         </div>
         <p className="cipherProgress" aria-live="polite">{solved ? `${puzzle.name} decoded — ${puzzleIndex + 1} of ${puzzles.length} complete.` : mistake ? "Signal disrupted — recalibrating…" : sequence.length ? `Correct signal: ${sequence.length} of 4 stars aligned.` : "Tap a star to begin the signal."}</p>
